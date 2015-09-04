@@ -85,10 +85,24 @@
 
 			//  Keypresses
 			if (o.keys) {
-				$(document).keydown(function(e) {
+				el.on('mousewheel', function(e) {
+				    if (e.originalEvent.wheelDelta >= 0) {
+				        _.prev(); // Left
+				    }else{
+				        _.next(); // Right
+				    }
+				});
+
+			    el.on('keydown', function(e) {
 					switch(e.which) {
 						case 37:
 							_.prev(); // Left
+							break;
+						case 40:
+							_.prev(); // Left
+							break;
+						case 38:
+							_.next(); // Right
 							break;
 						case 39:
 							_.next(); // Right
